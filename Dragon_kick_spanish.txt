@@ -1,0 +1,63 @@
+--Presiona "v" para Hard Reset.--
+--Presiona "k" para Reset.--
+--Hecho por lil_camilauwu.--
+
+game:service'RunService'.RenderStepped:connect(function(...)
+  pcall(function()
+    game:service'Players'.LocalPlayer.Character.Action:Destroy();
+  end);
+end)
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Glitch/Kick Script";
+        Text = "Como usar:";
+        })
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Teclas";
+        Text = "v Para hard Reset, k para reset, L para glitchear.";
+        })
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Metodo";
+        Text = "Selecciona un movimiento y presiona L.";
+        })
+
+game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Movimientos";
+        Text = "Tiro dragon para glitchear, Dragon Crush para kickear.";
+        })
+
+local Playe = game:GetService("Players").LocalPlayer
+local Mouse = Playe:GetMouse()
+
+Mouse.KeyDown:connect(function(Key)
+ Key = Key:lower()
+ if Key == 'v' then
+    Playe.Character.Humanoid.Health = 0
+end
+end)
+local mouse = game.Players.LocalPlayer:GetMouse()
+mouse.KeyDown:connect(function(key)
+if key == 'k' then
+    local Event = game:GetService("ReplicatedStorage").ResetChar
+    Event:FireServer()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1473417, 10, 1473297)
+end
+end)
+mouse.KeyDown:connect(function(key)
+    if key == "l" then
+        local plr = game.Players.LocalPlayer
+        game.Workspace.Live[plr.Name]["Dragon Throw"].Activator["Throw"]:Destroy()
+    end
+    end)
+mouse.KeyDown:connect(function(key)
+    if key == "l" then
+        local plr = game.Players.LocalPlayer
+        game.Workspace.Live[plr.Name]["Dragon Crush"].Activator["Flip"]:Destroy()
+        game.Workspace.Live[plr.Name]["Dragon Crush"].Activator["Throw"]:Destroy()
+        game.Workspace.Live[plr.Name]["Dragon Crush"].Activator["Blocked"]:Destroy()
+        game.Workspace.Live[plr.Name]["Dragon Crush"].Activator["HitDown"]:Destroy()
+        game.Workspace.Live[plr.Name]["Dragon Crush"].Activator["BoneBreak"]:Destroy()
+    end
+    end)
